@@ -1,7 +1,7 @@
 NAME = libmx.a
 CC = clang
 
-RAW = printchar print_unicode printstr print_strarr printint pow sqrt \
+RAW = isdigit atoi isnumber printchar print_unicode printstr print_strarr printint pow sqrt \
 	nbr_to_hex hex_to_nbr itoa foreach binary_search bubble_sort quicksort \
 	\
 	file_length allocate_memory replacesub isspace strlen strncmp swap_char str_reverse strdel del_strarr get_char_index strdup \

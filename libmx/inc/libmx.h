@@ -20,6 +20,9 @@
 	char **mx_allocate_memory(const char *s, char c);
 	char *mx_replacesub(int length, const char *str, const char *sub, const char *replace);
 	int mx_isspace(int argument);
+	int mx_isnumber(char *text);
+	int mx_atoi(const char *str);
+	int mx_isdigit(int c);
 
 	//LIBRARY FUNCTION----------------------------------------------------------------------------------
 

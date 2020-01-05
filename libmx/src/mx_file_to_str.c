@@ -5,7 +5,6 @@ char *mx_file_to_str(const char *file) {
     int fd;
     char *s;
     int length = mx_file_length(file);
-
     if (length <= 0)
         return NULL;
     sz = 0;
