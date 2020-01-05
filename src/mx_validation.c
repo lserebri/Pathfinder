@@ -6,7 +6,7 @@ int mx_validation(int count, char **inpt) {
 
     if(!mx_output_validresult(count, inpt))
         return 0;
-    if (!mx_valid_line1(lines[0]))
+    if (!mx_valid_line1(lines[0], text))
         return 0;
     if (!mx_valid_lines(text))
         return 0;
