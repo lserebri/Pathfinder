@@ -10,5 +10,7 @@ int mx_validation(int count, char **inpt) {
         return 0;
     if (!mx_valid_lines(text))
         return 0;
+    if (!mx_valid_islands(lines))
+        return 0;
     return 1;
 }
