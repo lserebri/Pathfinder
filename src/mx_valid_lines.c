@@ -9,12 +9,25 @@ static void output_error(int count) {
 static int check_islands(char *line, int count) {
     int i = 0;
     char **array;
+    char **array2;
 
     array = mx_strsplit(line, ',');
+    array2 = mx_strsplit(array[0], '-');
+    if ((!mx_isstring(array2[0]) || !mx_isstring(array2[1])) 
+        || mx_strcmp(array2[0], array2[1]) == 0) {
+        output_error(count);
+        return 0;
+    }
     for (i = 0; array[i]; i++);
     if (i != 2 || !mx_isnumber(array[1])) {
         output_error(count);
         return 0;
+    }
+    for (i = 0; array[0][i]; i++) {
+        if (mx_isspace(array[0][i])) {
+            output_error(count);
+            return 0;
+        }
     }
     return 1;
 }
@@ -53,11 +66,12 @@ static int check_voidlines(char *text)
 
 int mx_valid_lines(char *text) {
     char **array = mx_strsplit(text, '\n');
-    if (!check_voidlines(text))
-        return 0;
+
     for (int i = 1; array[i]; i++) {
         if(!check_line(array[i], i + 1))
             return 0;
     }
+    if (!check_voidlines(text))
+        return 0;
     return 1;
 }

@@ -6,7 +6,7 @@
 	#include <unistd.h>
 	#include <string.h> //comment this
 	#include <fcntl.h>
-	#include <malloc.h> //malloc.h || malloc/malloc.h
+	#include <malloc/malloc.h> //malloc.h || malloc/malloc.h
 	#include <stdbool.h>
 
 	typedef struct s_list {
@@ -23,6 +23,9 @@
 	int mx_isnumber(char *text);
 	int mx_atoi(const char *str);
 	int mx_isdigit(int c);
+	int mx_isalphabet(int c);
+	int mx_isstring(char *c);
+	char **mx_sortstring(int argc, char **argv);
 
 	//LIBRARY FUNCTION----------------------------------------------------------------------------------
 

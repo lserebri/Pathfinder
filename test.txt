@@ -1,5 +1,7 @@
-4
-Greenland-Bananal,8
+6
+Greenland-Greenland,8
 Fraser-Greenland,10
 Bananal-Fraser,3
 Java-Fraser,5
+Java-Hui,6
+Hui-Pizda,7

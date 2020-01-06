@@ -14,7 +14,7 @@ LMXI:=	$(LMXD)/inc
 INC = pathfinder.h
 INCS = $(addprefix $(INCD)/, $(INC))
 
-SRC = main.c mx_validation.c mx_output_validresult.c mx_valid_line1.c mx_valid_lines.c mx_vaid_islands
+SRC = main.c mx_validation.c mx_output_validresult.c mx_valid_line1.c mx_valid_lines.c mx_valid_islands.c
 
 
 SRCS	=	$(addprefix $(SRCD)/, $(SRC))
