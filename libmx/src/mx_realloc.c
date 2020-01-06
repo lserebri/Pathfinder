@@ -6,7 +6,7 @@ void *mx_realloc(void *ptr, size_t size) {
 
     if (!ptr)
         return malloc(size);
-    oldsize = malloc_size(ptr); //malloc_size || malloc_usable_size
+    oldsize = malloc_usable_size(ptr); //malloc_size || malloc_usable_size
     if (size <= oldsize)
         return ptr;
     newptr = malloc(size);

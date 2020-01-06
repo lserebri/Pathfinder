@@ -8,12 +8,10 @@ static void output_error(int count) {
 
 static int check_islands(char *line, int count) {
     int i = 0;
-    char **array;
-    char **array2;
+    char **array = mx_strsplit(line, ',');
+    char **array2 = mx_strsplit(array[0], '-');
 
-    array = mx_strsplit(line, ',');
-    array2 = mx_strsplit(array[0], '-');
-    if ((!mx_isstring(array2[0]) || !mx_isstring(array2[1])) 
+    if ((!mx_isstring(array2[0]) || !mx_isstring(array2[1]))
         || mx_strcmp(array2[0], array2[1]) == 0) {
         output_error(count);
         return 0;
