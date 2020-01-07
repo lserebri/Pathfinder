@@ -37,10 +37,10 @@ static char **full_array(char **array, char **lines, int len) {
 }
 
 static int count_islands(char **islands, int len) {
-    int count = 1;
+    int count = 0;
 
     for (int i = 0; i < len - 1; i++) {
-        while (!mx_strcmp(islands[i], islands[i + 1]))
+        while (islands[i + 1] != '\0' && !mx_strcmp(islands[i], islands[i + 1]))
             i++;
         count++;
     }
