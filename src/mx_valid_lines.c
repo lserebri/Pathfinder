@@ -1,9 +1,9 @@
 #include "pathfinder.h"
 
 static void output_error(int count) {
-    mx_printstr("error: line ");
-    mx_printstr(mx_itoa(count));
-    mx_printstr(" is not valid\n");
+    write(2, "error: line ", 12);
+    write(2, mx_itoa(count), mx_strlen(mx_itoa(count)));
+    write(2, " is not valid\n", 14);
 }
 
 static int check_islands(char *line, int count) {

@@ -2,7 +2,7 @@
 
 char **mx_sortstring(int argc, char **argv)
 {
-	int i = 1;
+	int i;
 	int	n = 1;
 	char *temp;
 

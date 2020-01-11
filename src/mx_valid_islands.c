@@ -40,10 +40,11 @@ static int count_islands(char **islands, int len) {
     int count = 0;
 
     for (int i = 0; i < len - 1; i++) {
-        while (islands[i + 1] != '\0' && !mx_strcmp(islands[i], islands[i + 1]))
-            i++;
+        for (;islands[i + 1] != '\0' && !mx_strcmp(islands[i], islands[i + 1]); i++);
         count++;
     }
+    if (!islands[len] && mx_strcmp(islands[len - 1], islands[len - 2]) != 0)
+            count++;
     return count;
 }
 
@@ -60,7 +61,7 @@ int mx_valid_islands(char **lines)
     islands = mx_sortstring((count - 1) * 2, islands);
     countisland = count_islands(islands, (count - 1) * 2);
     if (mx_strcmp(lines[0], mx_itoa(countisland)) != 0) {
-        mx_printstr("error: invalid number of islands\n");
+        write(2, "error: invalid number of islands\n", 33);
         return 0;
     }
     return 1;
