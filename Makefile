@@ -15,7 +15,8 @@ INC = pathfinder.h
 INCS = $(addprefix $(INCD)/, $(INC))
 
 SRC = main.c mx_validation.c mx_output_validresult.c mx_valid_line1.c mx_valid_lines.c \
-	mx_valid_islands.c mx_parse_array.c mx_parse_file.c mx_islands.c mx_links.c
+	mx_valid_islands.c mx_parse_array.c mx_parse_file.c mx_islands.c mx_links.c \
+	mx_do_algorithm.c
 
 
 SRCS	=	$(addprefix $(SRCD)/, $(SRC))

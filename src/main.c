@@ -35,4 +35,5 @@ int main(int argc, char **argv) {
     m->filename = argv[1];
     m->lines = mx_strsplit(text, '\n');
     mx_parse_file(m);
+    mx_do_algorithm(m);
 }

@@ -28,16 +28,4 @@ void mx_parse_array(t_graph *m) {
         parse_line(m, m->lines[i]);
         i++;
     }
-    printf("count of Islands = %d\n", m->V);
-    while (m->islands)
-    {
-        printf("island = %s ", m->islands->name);
-        while (m->islands->links) {
-            printf("linked island = %s ", m->islands->links->linked_island->name);
-            printf("weight = %d     ", m->islands->links->weight);
-            m->islands->links = m->islands->links->next;
-        }
-        printf("\n");
-        m->islands = m->islands->next;
-    }
 }

@@ -10,9 +10,11 @@
 
     struct s_island{
         int index;
+        int point;
         char *name;
-        t_link *links;  // linked islands list
-        t_path **paths; // path to each island
+        bool isvisited;
+        t_link *links;             // linked islands list
+        t_path **paths;            // path to each island
         t_island *next;
     };
 
@@ -25,7 +27,7 @@
     struct s_graph {
         int V;                     // islands count
         char *filename;            // for file_to_str
-        char **lines;             // for file_to_str
+        char **lines;              // for file_to_str
         t_island *islands;         // all islands
         t_island *start;           // for find_path
         t_island *end;             // for find_path
@@ -35,7 +37,7 @@
 
     struct s_path {
         t_link *route;
-        int weight;                  // summary weight of route
+        int weight;                // summary weight of route
         bool is_shortest;          // true if dist of path is minimum in list of paths
         t_path *next;
     };
@@ -51,6 +53,7 @@
     void mx_push_back_link(t_link **links, t_link *l);
     void mx_pop_back_link(t_link **links);
     void mx_set_link(t_link **links, t_island *linked_island, int weight);
+    void mx_do_algorithm(t_graph *m);
 
 
     // functions for validation ------------------------------
