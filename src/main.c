@@ -12,6 +12,7 @@ void mx_set_paths_to_null(t_graph *m) {
         index++;
         iter = iter->next;
     }
+    
 }
 
 t_graph *mx_create_graph() {

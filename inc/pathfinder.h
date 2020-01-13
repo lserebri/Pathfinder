@@ -8,7 +8,7 @@
     typedef struct s_graph t_graph;
     typedef struct s_path t_path;
 
-    struct s_island{
+    struct s_island {
         int index;
         int point;
         char *name;
