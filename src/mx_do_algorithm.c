@@ -1,34 +1,33 @@
 #include "pathfinder.h"
 
-static void find_paths(t_island *iland) {
-    t_island *i = iland;
-    t_link *links = iland->links;
-    // char *name = i->name;
+static void find_paths(t_island *i) {
+    // t_island *i = island;
+    char *name = i->name;
 
     i->point = 0;
     while (i) {
-        printf("Island = %s\n", i->name);
+        t_link *links = i->links;
         while (links) {
-            printf("linked island = %s\n", links->linked_island->name);
-            if (i->point + links->weight <= links->linked_island->point) {
+            if (i->point + links->weight <= links->linked_island->point 
+                && !i->isvisited && i->point < 2147483647) {
                 links->linked_island->point = i->point + links->weight;
-                // if (i->point != 0)
-                //     printf("%s -> %s, %d + %d = %d\n",name, links->linked_island->name,  i->point, + links->weight, i->point + links->weight);
-                // else
-                //     printf("%s -> %s, %d\n",name, links->linked_island->name,  i->point + links->weight);
-                }
+                if (i->point != 0)
+                    printf("%s -> %s, %d + %d = %d\n",name, links->linked_island->name,  i->point, + links->weight, i->point + links->weight);
+                else
+                    printf("%s -> %s, %d\n",name, links->linked_island->name,  i->point + links->weight);
+            }
             links = links->next;
         }
         i = i->next;
     }
-
+    printf("\n");
 }
 
 static void set_max_int(t_island *island) {
     t_island *iter = island;
     int max_int = 2147483647;
 
-    while (iter) {
+    while (iter && !iter->isvisited) {
         iter->point = max_int;
         iter = iter->next;
     }
@@ -36,29 +35,11 @@ static void set_max_int(t_island *island) {
 
 void mx_do_algorithm(t_graph *m) {
     t_island *is = m->islands;
-    set_max_int(is);
-    find_paths(is);
-    // set_max_int(is);
-    // find_paths(is);
-    // printf("pointl1 = %s\n", is->links->linked_island->name);
-    // set_max_int(is);
-    // find_paths(is->next);
-    // for (int i = 0; i < m->V; i++) {
-    //     set_max_int(m->islands);
-    //     find_paths(is);
-    //     is = is->next;
-    // }
-    // printf("count of Islands = %d\n", m->V);
-    // while (m->islands)
-    // {
-    //     printf("island = %s ", m->islands->name);
-    //     // printf("Point = %d     ", m->islands->point);
-    //     while (m->islands->links) {
-    //         printf("linked island = %s ", m->islands->links->linked_island->name);
-    //         printf("weight = %d     ", m->islands->links->weight);
-    //         m->islands->links = m->islands->links->next;
-    //     }
-    //     printf("\n");
-    //     m->islands = m->islands->next;
-    // }
+
+    for (int i = 0; i < m->V; i++) {
+        set_max_int(is);
+        find_paths(is);
+        is->isvisited = true;
+        is = is->next;
+    }
 }

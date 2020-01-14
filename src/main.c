@@ -7,8 +7,10 @@ void mx_set_paths_to_null(t_graph *m) {
     while (iter) {
         iter->index = index;
         iter->paths = malloc(sizeof(t_path *) * m->V);
-        for (int index = 0; index < m->V; index++)
+        for (int index = 0; index < m->V; index++) {
+            iter->isvisited = false;
             iter->paths[index] = NULL;
+        }
         index++;
         iter = iter->next;
     }
